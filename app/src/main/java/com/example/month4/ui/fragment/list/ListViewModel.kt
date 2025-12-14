@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class ListViewModel : ViewModel() {
+class ListViewModel(private val repositoryItem: ProductRepository) : ViewModel() {
     private val repository = ProductRepository()
 
     private val _state = MutableStateFlow<UIState<List<ProductDto>>>(UIState.Loading)

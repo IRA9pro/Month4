@@ -12,7 +12,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.month4.databinding.FragmentProductListBinding
-import com.example.month4.ui.fragment.detail.DetailsViewModel
 import com.example.month4.ui.models.UIState
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel

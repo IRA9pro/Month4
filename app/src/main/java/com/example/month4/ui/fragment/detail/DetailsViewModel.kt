@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class DetailsViewModel : ViewModel() {
+class DetailsViewModel(private val repositoryItem: ProductRepository) : ViewModel() {
 
     private val _state = MutableStateFlow<UIState<ProductDto>>(UIState.Loading)
     val state: StateFlow<UIState<ProductDto>> = _state.asStateFlow()
