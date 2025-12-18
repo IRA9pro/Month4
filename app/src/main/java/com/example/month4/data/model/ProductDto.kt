@@ -17,7 +17,7 @@ data class ProductDto(
     @SerialName("price")
     val price: Double?,
     @SerialName("rating")
-    val rating: Rating?,
+    val rating: RatingDto?,
     @SerialName("title")
     val title: String?
 )

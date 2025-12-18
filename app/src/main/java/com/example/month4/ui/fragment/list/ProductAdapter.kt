@@ -7,24 +7,24 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil3.load
 import coil3.request.crossfade
-import com.example.month4.data.model.ProductDto
 import com.example.month4.databinding.ItemProductBinding
+import com.example.month4.domain.models.Product
 
 class ProductAdapter(
     val onProductClick: (Int) -> Unit
-) : ListAdapter<ProductDto, ProductAdapter.ProductViewHolder>(ProductDiffUtilCallback()) {
+) : ListAdapter<Product, ProductAdapter.ProductViewHolder>(ProductDiffUtilCallback()) {
 
-    class ProductDiffUtilCallback : DiffUtil.ItemCallback<ProductDto>() {
+    class ProductDiffUtilCallback : DiffUtil.ItemCallback<Product>() {
         override fun areItemsTheSame(
-            oldItem: ProductDto,
-            newItem: ProductDto
+            oldItem: Product,
+            newItem: Product
         ): Boolean {
             return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(
-            oldItem: ProductDto,
-            newItem: ProductDto
+            oldItem: Product,
+            newItem: Product
         ): Boolean {
             return oldItem == newItem
         }
@@ -52,7 +52,7 @@ class ProductAdapter(
 
     inner class ProductViewHolder(private val binding: ItemProductBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(product: ProductDto) {
+        fun onBind(product: Product) {
             with(binding) {
                 tvImage.load(product.image) {
                     crossfade(true)

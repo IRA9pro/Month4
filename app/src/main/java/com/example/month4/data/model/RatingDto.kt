@@ -5,7 +5,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Rating(
+data class RatingDto(
     @SerialName("count")
     val count: Int?,
     @SerialName("rate")

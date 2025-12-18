@@ -64,6 +64,7 @@ dependencies {
     implementation(libs.converter.kotlinx.serialization)
 
     // 3. Koin (DI)
+    implementation(libs.koin.core)
     implementation(libs.koin.android)
 
     // 4. Coil (Images)

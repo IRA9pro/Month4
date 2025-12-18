@@ -1,4 +1,4 @@
-package com.example.month4.data.api
+package com.example.month4.data.datasource
 
 import com.example.month4.data.model.ProductDto
 import retrofit2.http.GET

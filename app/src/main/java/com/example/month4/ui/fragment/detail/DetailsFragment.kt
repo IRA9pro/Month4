@@ -12,9 +12,6 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.navArgs
 import coil3.load
 import coil3.request.crossfade
-import com.example.month4.data.api.RetrofitService
-import com.example.month4.data.model.ProductDto
-import com.example.month4.data.repository.ProductRepository
 import com.example.month4.databinding.FragmentDetailsBinding
 import com.example.month4.ui.models.UIState
 import kotlinx.coroutines.launch
