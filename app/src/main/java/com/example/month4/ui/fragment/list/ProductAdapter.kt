@@ -11,7 +11,8 @@ import com.example.month4.databinding.ItemProductBinding
 import com.example.month4.domain.models.Product
 
 class ProductAdapter(
-    val onProductClick: (Int) -> Unit
+    private val onProductClick: (Int) -> Unit,
+    private val onAddCartClick: (Product) -> Unit
 ) : ListAdapter<Product, ProductAdapter.ProductViewHolder>(ProductDiffUtilCallback()) {
 
     class ProductDiffUtilCallback : DiffUtil.ItemCallback<Product>() {
@@ -62,7 +63,8 @@ class ProductAdapter(
                 tvPrice.text = "$${product.price}"
                 tvRating.text = "★${product.rating!!.rate}"
 
-                root.setOnClickListener { onProductClick(product.id!!) }
+                root.setOnClickListener { onProductClick(product.id) }
+                tvImage.setOnClickListener { onAddCartClick(product) }
             }
         }
     }

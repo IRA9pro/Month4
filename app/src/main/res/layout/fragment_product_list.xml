@@ -13,4 +13,23 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_product" />
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="30dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="50dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_cart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:backgroundTint="@color/black" />
+
+    </androidx.cardview.widget.CardView>
+
 </FrameLayout>

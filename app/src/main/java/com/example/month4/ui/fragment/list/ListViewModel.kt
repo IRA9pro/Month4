@@ -3,6 +3,7 @@ package com.example.month4.ui.fragment.list
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.month4.domain.models.Product
+import com.example.month4.domain.repository.CartRepository
 import com.example.month4.domain.usecase.GetProductsUseCase
 import com.example.month4.ui.models.UIState
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -11,7 +12,8 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class ListViewModel(
-    private val getProductsUseCase: GetProductsUseCase
+    private val getProductsUseCase: GetProductsUseCase,
+    private val cartRepository: CartRepository
 ) : ViewModel() {
 
     private val _state = MutableStateFlow<UIState<List<Product>>>(UIState.Loading)
@@ -30,6 +32,12 @@ class ListViewModel(
             } catch (e: Exception) {
                 _state.value = UIState.Error(e.message ?: "")
             }
+        }
+    }
+
+    fun addToCart(product: Product) {
+        viewModelScope.launch {
+            cartRepository.addToCart(product)
         }
     }
 }

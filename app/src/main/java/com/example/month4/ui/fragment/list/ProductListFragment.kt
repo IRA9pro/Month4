@@ -11,7 +11,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.example.month4.R
 import com.example.month4.databinding.FragmentProductListBinding
+import com.example.month4.domain.models.Product
 import com.example.month4.ui.models.UIState
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -32,9 +34,15 @@ class ProductListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter = ProductAdapter(::onProductClick)
+        adapter = ProductAdapter(::onProductClick, ::onAddCartClick)
         binding.rvProductList.adapter = adapter
         observeState()
+
+        binding.btnCart.setOnClickListener {
+            findNavController()
+                .navigate(R.id.action_productListFragment_to_cartFragment)
+        }
+
     }
 
     private fun observeState() {
@@ -64,5 +72,10 @@ class ProductListFragment : Fragment() {
     private fun onProductClick(id: Int) {
         val action = ProductListFragmentDirections.Companion.actionProductListFragmentToDetailsFragment(id)
         findNavController().navigate(action)
+    }
+
+    private fun onAddCartClick(product: Product) {
+        viewModel.addToCart(product)
+        Toast.makeText(context, "Added", Toast.LENGTH_SHORT).show()
     }
 }
