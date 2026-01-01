@@ -9,5 +9,5 @@ import org.koin.dsl.module
 val uiModule = module {
     viewModel { ListViewModel(getProductsUseCase = get(), get()) }
     viewModel { DetailsViewModel(getProductUseCase = get()) }
-    viewModel { CartViewModel(get()) }
+    viewModel { CartViewModel(get(), get(), get()) }
 }
